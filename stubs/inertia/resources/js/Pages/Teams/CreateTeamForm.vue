@@ -1,16 +1,16 @@
 <template>
     <jet-form-section @submitted="createTeam">
         <template #title>
-            Team Details
+            جزییات تیم
         </template>
 
         <template #description>
-            Create a new team to collaborate with others on projects.
+            ایجاد یک تیم برای همکاری با دیگران در پروژه ها
         </template>
 
         <template #form>
             <div class="col-span-6">
-                <jet-label value="Team Owner" />
+                <jet-label value="مالک تیم" />
 
                 <div class="flex items-center mt-2">
                     <img class="w-12 h-12 rounded-full" :src="$page.user.profile_photo_url" :alt="$page.user.name">
@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Team Name" />
+                <jet-label for="name" value="نام تیم" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autofocus />
                 <jet-input-error :message="form.error('name')" class="mt-2" />
             </div>
@@ -31,11 +31,11 @@
 
         <template #actions>
             <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                ذخیره شد.
             </jet-action-message>
 
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                ذخیره
             </jet-button>
         </template>
     </jet-form-section>

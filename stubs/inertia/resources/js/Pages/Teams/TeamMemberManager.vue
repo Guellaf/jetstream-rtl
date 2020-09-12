@@ -6,30 +6,30 @@
             <!-- Add Team Member -->
             <jet-form-section @submitted="addTeamMember">
                 <template #title>
-                    Add Team Member
+                    اضافه کردن عضو تیم
                 </template>
 
                 <template #description>
-                    Add a new team member to your team, allowing them to collaborate with you.
+                    با اضافه کردن عضو جدید به تیم به آنها این اجازه را میدهد تا با شما همکاری کنند.
                 </template>
 
                 <template #form>
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            Please provide the email address of the person you would like to add to this team. The email address must be associated with an existing account.
+                            لطفا آدرس ایمیل شخصی که میخواهید به تیم اضافه کنید را وارد کنید. این آدرس ایمیل باید در سیستم عضو باشد.
                         </div>
                     </div>
 
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
-                        <jet-label for="email" value="Email" />
+                        <jet-label for="email" value="ایمیل" />
                         <jet-input id="name" type="text" class="mt-1 block w-full" v-model="addTeamMemberForm.email" />
                         <jet-input-error :message="addTeamMemberForm.error('email')" class="mt-2" />
                     </div>
 
                     <!-- Role -->
                     <div class="col-span-6 lg:col-span-4" v-if="availableRoles.length > 0">
-                        <jet-label for="roles" value="Role" />
+                        <jet-label for="roles" value="نقش" />
                         <jet-input-error :message="addTeamMemberForm.error('role')" class="mt-2" />
 
                         <div class="mt-1 border border-gray-200 rounded-lg cursor-pointer">
@@ -59,11 +59,11 @@
 
                 <template #actions>
                     <jet-action-message :on="addTeamMemberForm.recentlySuccessful" class="mr-3">
-                        Added.
+                        اضافه شد.
                     </jet-action-message>
 
                     <jet-button :class="{ 'opacity-25': addTeamMemberForm.processing }" :disabled="addTeamMemberForm.processing">
-                        Add
+                        اضافه کن
                     </jet-button>
                 </template>
             </jet-form-section>
@@ -75,11 +75,11 @@
             <!-- Manage Team Members -->
             <jet-action-section class="mt-10 sm:mt-0">
                 <template #title>
-                    Team Members
+                    اعضای تیم
                 </template>
 
                 <template #description>
-                    All of the people that are part of this team.
+                   تمام این افراد عضوی از تیم هستند.
                 </template>
 
                 <!-- Team Member List -->
@@ -107,14 +107,14 @@
                                 <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none"
                                                     @click="confirmLeavingTeam"
                                                     v-if="$page.user.id === user.id">
-                                    Leave
+                                    ترک تیم
                                 </button>
 
                                 <!-- Remove Team Member -->
                                 <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none"
                                                     @click="confirmTeamMemberRemoval(user)"
                                                     v-if="userPermissions.canRemoveTeamMembers">
-                                    Remove
+                                    حذف
                                 </button>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
         <!-- Role Management Modal -->
         <jet-dialog-modal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
             <template #title>
-                Manage Role
+                مدیریت نقش ها
             </template>
 
             <template #content>
@@ -158,11 +158,11 @@
 
             <template #footer>
                 <jet-secondary-button @click.native="currentlyManagingRole = false">
-                    Nevermind
+                    بیخیال
                 </jet-secondary-button>
 
                 <jet-button class="ml-2" @click.native="updateRole" :class="{ 'opacity-25': updateRoleForm.processing }" :disabled="updateRoleForm.processing">
-                    Save
+                    ذخیره
                 </jet-button>
             </template>
         </jet-dialog-modal>
@@ -170,20 +170,20 @@
         <!-- Leave Team Confirmation Modal -->
         <jet-confirmation-modal :show="confirmingLeavingTeam" @close="confirmingLeavingTeam = false">
             <template #title>
-                Leave Team
+                ترک تیم
             </template>
 
             <template #content>
-                Are you sure you would like to leave this team?
+                آیا مطمئن هستید که میخواهید این تیم را ترک کنید؟
             </template>
 
             <template #footer>
                 <jet-secondary-button @click.native="confirmingLeavingTeam = false">
-                    Nevermind
+                    بیخیال
                 </jet-secondary-button>
 
                 <jet-danger-button class="ml-2" @click.native="leaveTeam" :class="{ 'opacity-25': leaveTeamForm.processing }" :disabled="leaveTeamForm.processing">
-                    Leave
+                    ترک کن
                 </jet-danger-button>
             </template>
         </jet-confirmation-modal>
@@ -191,20 +191,20 @@
         <!-- Remove Team Member Confirmation Modal -->
         <jet-confirmation-modal :show="teamMemberBeingRemoved" @close="teamMemberBeingRemoved = null">
             <template #title>
-                Remove Team Member
+                حذف عضو تیم
             </template>
 
             <template #content>
-                Are you sure you would like to remove this person from the team?
+                آیا مطمئن هستید که میخواهید این فرد را از تیم حذف کنید؟
             </template>
 
             <template #footer>
                 <jet-secondary-button @click.native="teamMemberBeingRemoved = null">
-                    Nevermind
+                    بیخیال
                 </jet-secondary-button>
 
                 <jet-danger-button class="ml-2" @click.native="removeTeamMember" :class="{ 'opacity-25': removeTeamMemberForm.processing }" :disabled="removeTeamMemberForm.processing">
-                    Remove
+                    حذف
                 </jet-danger-button>
             </template>
         </jet-confirmation-modal>

@@ -1,25 +1,26 @@
 <template>
     <jet-action-section>
         <template #title>
-            Two Factor Authentication
+            احراز هویت دومرحله لی
         </template>
 
         <template #description>
+            به وسیله احرازهویت دو مرحله ای امنیت حساب کاربری خود را افزایش دهید.
             Add additional security to your account using two factor authentication.
         </template>
 
         <template #content>
             <h3 class="text-lg font-medium text-gray-900" v-if="twoFactorEnabled">
-                You have enabled two factor authentication.
+                شما احرازهویت دومرحله ای را فعال کرده اید.
             </h3>
 
             <h3 class="text-lg font-medium text-gray-900" v-else>
-                You have not enabled two factor authentication.
+                شما احرازهویت دومرحله ای را فعال نکرده اید.
             </h3>
 
             <div class="mt-3 max-w-xl text-sm text-gray-600">
                 <p>
-                    When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.
+                    هنگامی گه احرازهویت دومرحله ای را فعال میکنید از شما یک رمز دیگری درخواست میشود که باید از نرم افزار Google Authenticator دریافت نمایید.
                 </p>
             </div>
 
@@ -27,7 +28,7 @@
                 <div v-if="qrCode">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application.
+                            هم اکنون احرازهویت دومرحله ای برای شما فعال شد. QR code زیر را در نرم افزار Google Authenticator اسکن نمایید.
                         </p>
                     </div>
 
@@ -38,7 +39,7 @@
                 <div v-if="recoveryCodes.length > 0">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
+                            کد بازیابی را در مکانی امن ذخیره کنید. این کد زمانی که دستگاهی که روی آن Google Authenticator نصب است را گم کرده اید به شما کمک میکند تا حساب خود را بازیابی کنید.
                         </p>
                     </div>
 
@@ -55,7 +56,7 @@
                     <jet-button type="button" @click.native="enableTwoFactorAuthentication"
                                         :class="{ 'opacity-25': enabling }"
                                         :disabled="enabling">
-                        Enable
+                        فعال
                     </jet-button>
                 </div>
 
@@ -63,19 +64,19 @@
                     <jet-secondary-button class="mr-3"
                                     @click.native="regenerateRecoveryCodes"
                                     v-if="recoveryCodes.length > 0">
-                        Regenerate Recovery Codes
+                        تولید مجدد کد بازیابی
                     </jet-secondary-button>
 
                     <jet-secondary-button class="mr-3"
                                 @click.native="showRecoveryCodes"
                                 v-else>
-                        Show Recovery Codes
+                        نمایش کدهای بازیابی
                     </jet-secondary-button>
 
                     <jet-danger-button @click.native="disableTwoFactorAuthentication"
                                     :class="{ 'opacity-25': disabling }"
                                     :disabled="disabling">
-                        Disable
+                        غیرفعال
                     </jet-danger-button>
                 </div>
             </div>

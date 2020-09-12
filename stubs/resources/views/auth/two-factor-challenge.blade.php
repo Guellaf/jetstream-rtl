@@ -19,12 +19,12 @@
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <x-jet-label value="Code" />
+                    <x-jet-label value="کد" />
                     <x-jet-input class="block mt-1 w-full" type="text" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <x-jet-label value="Recovery Code" />
+                    <x-jet-label value="کد بازیابی" />
                     <x-jet-input class="block mt-1 w-full" type="text" name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
@@ -44,11 +44,11 @@
                                         recovery = false;
                                         $nextTick(() => { $refs.code.focus() })
                                     ">
-                        {{ __('Use an authentication code') }}
+                        استفاده از کد احراز هویت
                     </button>
 
                     <x-jet-button class="ml-4">
-                        {{ __('Login') }}
+                        ورود
                     </x-jet-button>
                 </div>
             </form>

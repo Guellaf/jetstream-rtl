@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['GanjNameh', ...defaultTheme.fontFamily.sans],
             },
         },
     },
@@ -15,5 +15,5 @@ module.exports = {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
     },
 
-    plugins: [require('@tailwindcss/ui')],
+    plugins: [require('@tailwindcss/ui'),require('tailwindcss-rtl')],
 };

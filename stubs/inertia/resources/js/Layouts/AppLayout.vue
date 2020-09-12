@@ -15,7 +15,7 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
-                                Dashboard
+                                داشبورد
                             </jet-nav-link>
                         </div>
                     </div>
@@ -33,11 +33,11 @@
                                 <template #content>
                                     <!-- Account Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        Manage Account
+                                        مدیریت حساب کاربری
                                     </div>
 
                                     <jet-dropdown-link href="/user/profile">
-                                        Profile
+                                        پروفایل
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link href="/user/api-tokens" v-if="$page.jetstream.hasApiFeatures">
@@ -49,23 +49,23 @@
                                     <!-- Team Management -->
                                     <template v-if="$page.jetstream.hasTeamFeatures">
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Team
+                                            مدیریت تیم
                                         </div>
 
                                         <!-- Team Settings -->
                                         <jet-dropdown-link :href="'/teams/' + $page.user.current_team.id">
-                                            Team Settings
+                                            تنظیمات تیم
                                         </jet-dropdown-link>
 
                                         <jet-dropdown-link href="/teams/create" v-if="$page.jetstream.canCreateTeams">
-                                            Create New Team
+                                            ایحاد تیم جدید
                                         </jet-dropdown-link>
 
                                         <div class="border-t border-gray-100"></div>
 
                                         <!-- Team Switcher -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Switch Teams
+                                            جابجایی بین تیم ها
                                         </div>
 
                                         <template v-for="team in $page.user.all_teams">
@@ -85,7 +85,7 @@
                                     <!-- Authentication -->
                                     <form @submit.prevent="logout">
                                         <jet-dropdown-link as="button">
-                                            Logout
+                                            خروج
                                         </jet-dropdown-link>
                                     </form>
                                 </template>
@@ -109,7 +109,7 @@
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
                     <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
-                        Dashboard
+                        داشبورد
                     </jet-responsive-nav-link>
                 </div>
 
@@ -128,7 +128,7 @@
 
                     <div class="mt-3 space-y-1">
                         <jet-responsive-nav-link href="/user/profile" :active="$page.currentRouteName == 'profile.show'">
-                            Profile
+                            پروفایل
                         </jet-responsive-nav-link>
 
                         <jet-responsive-nav-link href="/user/api-tokens" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
@@ -138,7 +138,7 @@
                         <!-- Authentication -->
                         <form method="POST" @submit.prevent="logout">
                             <jet-responsive-nav-link as="button">
-                                Logout
+                                خروج
                             </jet-responsive-nav-link>
                         </form>
 
@@ -147,23 +147,23 @@
                             <div class="border-t border-gray-200"></div>
 
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                Manage Team
+                                مدیریت تیم
                             </div>
 
                             <!-- Team Settings -->
                             <jet-responsive-nav-link :href="'/teams/' + $page.user.current_team.id" :active="$page.currentRouteName == 'teams.show'">
-                                Team Settings
+                                تنظیمات تیم
                             </jet-responsive-nav-link>
 
                             <jet-responsive-nav-link href="/teams/create" :active="$page.currentRouteName == 'teams.create'">
-                                Create New Team
+                                ساخت تیم جدید
                             </jet-responsive-nav-link>
 
                             <div class="border-t border-gray-200"></div>
 
                             <!-- Team Switcher -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                Switch Teams
+                                جابجایی بین تیم ها
                             </div>
 
                             <template v-for="team in $page.user.all_teams">

@@ -16,31 +16,31 @@
             @csrf
 
             <div>
-                <x-jet-label value="Email" />
+                <x-jet-label value="ایمیل" />
                 <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
-                <x-jet-label value="Password" />
+                <x-jet-label value="رمز عبور" />
                 <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600"> ذخیره رمز عبور </span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        رمزعبور خود را فراموش کرده اید؟
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
-                    {{ __('Login') }}
+                <x-jet-button class="mr-4">
+                    ورود
                 </x-jet-button>
             </div>
         </form>

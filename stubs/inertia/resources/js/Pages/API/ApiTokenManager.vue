@@ -3,24 +3,24 @@
         <!-- Generate API Token -->
         <jet-form-section @submitted="createApiToken">
             <template #title>
-                Create API Token
+                ایجاد API Token
             </template>
 
             <template #description>
-                API tokens allow third-party services to authenticate with our application on your behalf.
+                API token به دیگر سرویس ها اجازه میدند تا به وسیله ی اپلیمیشن شنا احراز هویت شوند.
             </template>
 
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <jet-label for="name" value="Name" />
+                    <jet-label for="name" value="نام" />
                     <jet-input id="name" type="text" class="mt-1 block w-full" v-model="createApiTokenForm.name" autofocus />
                     <jet-input-error :message="createApiTokenForm.error('name')" class="mt-2" />
                 </div>
 
                 <!-- Token Permissions -->
                 <div class="col-span-6" v-if="availablePermissions.length > 0">
-                    <jet-label for="permissions" value="Permissions" />
+                    <jet-label for="permissions" value="پرمیژن ها" />
 
                     <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div v-for="permission in availablePermissions">
@@ -35,11 +35,11 @@
 
             <template #actions>
                 <jet-action-message :on="createApiTokenForm.recentlySuccessful" class="mr-3">
-                    Created.
+                    ایجاد.
                 </jet-action-message>
 
                 <jet-button :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
-                    Create
+                    ایجاد
                 </jet-button>
             </template>
         </jet-form-section>
@@ -51,11 +51,11 @@
             <div class="mt-10 sm:mt-0">
                 <jet-action-section>
                     <template #title>
-                        Manage API Tokens
+                        مدیریت API Token ها
                     </template>
 
                     <template #description>
-                        You may delete any of your existing tokens if they are no longer needed.
+                        در صورت عدم نیاز به توکن ها میتوانید آنها را حذف نمایید.
                     </template>
 
                     <!-- API Token List -->
@@ -68,17 +68,17 @@
 
                                 <div class="flex items-center">
                                     <div class="text-sm text-gray-400" v-if="token.last_used_at">
-                                        Last used {{ fromNow(token.last_used_at) }}
+                                        آخرین استفاده {{ fromNow(token.last_used_at) }}
                                     </div>
 
                                     <button class="cursor-pointer ml-6 text-sm text-gray-400 underline focus:outline-none"
                                                 @click="manageApiTokenPermissions(token)"
                                                 v-if="availablePermissions.length > 0">
-                                        Permissions
+                                        پرمیژن ها
                                     </button>
 
                                     <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none" @click="confirmApiTokenDeletion(token)">
-                                        Delete
+                                        حذف
                                     </button>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
 
             <template #content>
                 <div>
-                    Please copy your new API token. For your security, it won't be shown again.
+                    لطفا API token را کپی کنید. به دلیل مسائل امنیتی، پس از این دیگر قابل مشاهده نیست.
                 </div>
 
                 <div class="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500" v-if="$page.jetstream.flash.token">
@@ -106,7 +106,7 @@
 
             <template #footer>
                 <jet-secondary-button @click.native="displayingToken = false">
-                    Close
+                    بستن
                 </jet-secondary-button>
             </template>
         </jet-dialog-modal>
@@ -114,7 +114,7 @@
         <!-- API Token Permissions Modal -->
         <jet-dialog-modal :show="managingPermissionsFor" @close="managingPermissionsFor = null">
             <template #title>
-                API Token Permissions
+                API Token پرمیژن های
             </template>
 
             <template #content>
@@ -130,11 +130,11 @@
 
             <template #footer>
                 <jet-secondary-button @click.native="managingPermissionsFor = null">
-                    Nevermind
+                    بیخیال
                 </jet-secondary-button>
 
                 <jet-button class="ml-2" @click.native="updateApiToken" :class="{ 'opacity-25': updateApiTokenForm.processing }" :disabled="updateApiTokenForm.processing">
-                    Save
+                    ذخیره
                 </jet-button>
             </template>
         </jet-dialog-modal>
@@ -142,20 +142,20 @@
         <!-- Delete Token Confirmation Modal -->
         <jet-confirmation-modal :show="apiTokenBeingDeleted" @close="apiTokenBeingDeleted = null">
             <template #title>
-                Delete API Token
+                حذف API Token
             </template>
 
             <template #content>
-                Are you sure you would like to delete this API token?
+                آیا مطمئن هستید که میخواهید این API token را حذف کنید ؟
             </template>
 
             <template #footer>
                 <jet-secondary-button @click.native="apiTokenBeingDeleted = null">
-                    Nevermind
+                    بیخیال
                 </jet-secondary-button>
 
                 <jet-danger-button class="ml-2" @click.native="deleteApiToken" :class="{ 'opacity-25': deleteApiTokenForm.processing }" :disabled="deleteApiTokenForm.processing">
-                    Delete
+                    حذف
                 </jet-danger-button>
             </template>
         </jet-confirmation-modal>

@@ -12,12 +12,13 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+		<link rel="stylesheet" href="http://cdn.font-store.ir/ganjnameh.css">
+		
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" dir="rtl">
         @inertia
     </body>
 </html>

@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+         اطلاعات پروفایل
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        بروزرسانی اطلاعات پروفایل و آدرس ایمیل
     </x-slot>
 
     <x-slot name="form">
@@ -39,7 +39,7 @@
                 </div>
 
                 <x-jet-secondary-button class="mt-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
+                    انتخاب یک عکس جدید
                 </x-jet-secondary-button>
 
                 <x-jet-input-error for="photo" class="mt-2" />
@@ -48,14 +48,14 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="Name" />
+            <x-jet-label for="name" value="نام" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="Email" />
+            <x-jet-label for="email" value="ایمیل" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
@@ -63,11 +63,11 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            ذخیره شد.
         </x-jet-action-message>
 
         <x-jet-button>
-            {{ __('Save') }}
+            ذخیره
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>

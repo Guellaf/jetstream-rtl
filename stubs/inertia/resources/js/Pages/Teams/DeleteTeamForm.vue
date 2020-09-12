@@ -1,41 +1,41 @@
 <template>
     <jet-action-section>
         <template #title>
-            Delete Team
+            حذف تیم
         </template>
 
         <template #description>
-            Permanently delete this team.
+            حذف همیشگی و کامل این تیم
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.
+                به محض حذف تیم، تمام اطلاعات و منابع شما پاک میشود. لطفا در ایتدا از تمام اطلاعات مهم خود نسخه پشتیبان تهیه کنید.
             </div>
 
             <div class="mt-5">
                 <jet-danger-button @click.native="confirmTeamDeletion">
-                    Delete Team
+                    حذف تیم
                 </jet-danger-button>
             </div>
 
             <!-- Delete Team Confirmation Modal -->
             <jet-confirmation-modal :show="confirmingTeamDeletion" @close="confirmingTeamDeletion = false">
                 <template #title>
-                    Delete Team
+                    حذف تیم
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.
+                    آیا مطمئنید که میخواهید این تیم را حذف کنید ؟ به محض حذف تیم، تمام اطلاعات و منابع شما پاک میشود.
                 </template>
 
                 <template #footer>
                     <jet-secondary-button @click.native="confirmingTeamDeletion = false">
-                        Nevermind
+                        بیخیال
                     </jet-secondary-button>
 
                     <jet-danger-button class="ml-2" @click.native="deleteTeam" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Delete Team
+                        حذف تیم
                     </jet-danger-button>
                 </template>
             </jet-confirmation-modal>

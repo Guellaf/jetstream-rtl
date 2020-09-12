@@ -1,11 +1,11 @@
 <template>
     <jet-form-section @submitted="updateTeamName">
         <template #title>
-            Team Name
+            نام تیم
         </template>
 
         <template #description>
-            The team's name and owner information.
+            نام تیم ها و مالکان آن
         </template>
 
         <template #form>
@@ -25,7 +25,7 @@
 
             <!-- Team Name -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Team Name" />
+                <jet-label for="name" value="نام تیم" />
 
                 <jet-input id="name"
                             type="text"
@@ -39,11 +39,11 @@
 
         <template #actions v-if="permissions.canUpdateTeam">
             <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                ذخیره شد.
             </jet-action-message>
 
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                ذخیره
             </jet-button>
         </template>
     </jet-form-section>

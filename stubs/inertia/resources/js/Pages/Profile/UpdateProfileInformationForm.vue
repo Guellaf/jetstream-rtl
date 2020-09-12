@@ -1,11 +1,11 @@
 <template>
     <jet-form-section @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            اطلاعات پروفایل
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            بروزرسانی اطلاعات پروفایل و آدرس ایمیل
         </template>
 
         <template #form>
@@ -31,7 +31,7 @@
                 </div>
 
                 <jet-secondary-button class="mt-2" type="button" @click.native.prevent="selectNewPhoto">
-                    Select A New Photo
+                    انتخاب یک عکس جدید
                 </jet-secondary-button>
 
                 <jet-input-error :message="form.error('photo')" class="mt-2" />
@@ -39,14 +39,14 @@
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Name" />
+                <jet-label for="name" value="نام" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
                 <jet-input-error :message="form.error('name')" class="mt-2" />
             </div>
 
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="email" value="Email" />
+                <jet-label for="email" value="ایمیل" />
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.error('email')" class="mt-2" />
             </div>
@@ -54,11 +54,11 @@
 
         <template #actions>
             <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                ذخیره شد.
             </jet-action-message>
 
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                ذخیره
             </jet-button>
         </template>
     </jet-form-section>

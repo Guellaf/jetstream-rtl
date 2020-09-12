@@ -1,16 +1,16 @@
 <template>
     <jet-action-section>
         <template #title>
-            Browser Sessions
+            مرور Session ها
         </template>
 
         <template #description>
-            Manage and logout your active sessions on other browsers and devices.
+            مدیریت و خروج از Session های فعال از دیگر مرورگر و دستگاه ها
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password.
+                در صورت نیاز میتوانید از تمام مرورگر ها در تمام دستگاه ها خارج شوید. اگر فکر میکنید حساب کاربری شما به سرقت رفته است باید رمز عبور خود را نیز تغییر دهید.
             </div>
 
             <!-- Other Browser Sessions -->
@@ -35,7 +35,7 @@
                             <div class="text-xs text-gray-500">
                                 {{ session.ip_address }},
 
-                                <span class="text-green-500 font-semibold" v-if="session.is_current_device">This device</span>
+                                <span class="text-green-500 font-semibold" v-if="session.is_current_device">این دستگاه</span>
                                 <span v-else>Last active {{ session.last_active }}</span>
                             </div>
                         </div>
@@ -45,25 +45,24 @@
 
             <div class="flex items-center mt-5">
                 <jet-button @click.native="confirmLogout">
-                    Logout Other Browser Sessions
+                    خروج از دیگر مرورگرها
                 </jet-button>
 
                 <jet-action-message :on="form.recentlySuccessful" class="ml-3">
-                    Done.
+                    انجام شد.
                 </jet-action-message>
             </div>
 
             <!-- Logout Other Devices Confirmation Modal -->
             <jet-dialog-modal :show="confirmingLogout" @close="confirmingLogout = false">
                 <template #title>
-                    Logout Other Browser Sessions
+                    خروج از دیگر مرورگرها
                 </template>
 
                 <template #content>
-                    Please enter your password to confirm you would like to logout of your other browser sessions across all of your devices.
-
+                    لطفا رمزعبور خود را وارد نمایید
                     <div class="mt-4">
-                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="رمز عبور"
                                     ref="password"
                                     v-model="form.password"
                                     @keyup.enter.native="logoutOtherBrowserSessions" />
@@ -74,11 +73,11 @@
 
                 <template #footer>
                     <jet-secondary-button @click.native="confirmingLogout = false">
-                        Nevermind
+                        بیخیال
                     </jet-secondary-button>
 
                     <jet-button class="ml-2" @click.native="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Logout Other Browser Sessions
+                        خروج از دیگر مرورگرها
                     </jet-button>
                 </template>
             </jet-dialog-modal>

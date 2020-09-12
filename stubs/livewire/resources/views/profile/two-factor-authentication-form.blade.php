@@ -1,24 +1,24 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Two Factor Authentication') }}
+                    احراز هویت دومرحله ای
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Add additional security to your account using two factor authentication.') }}
+        به وسیله احرازهویت دو مرحله ای امنیت حساب کاربری خود را افزایش دهید.
     </x-slot>
 
     <x-slot name="content">
         <h3 class="text-lg font-medium text-gray-900">
             @if ($this->enabled)
-                {{ __('You have enabled two factor authentication.') }}
+                شما احرازهویت دومرحله ای را فعال کرده اید.
             @else
-                {{ __('You have not enabled two factor authentication.') }}
+                شما احرازهویت دومرحله ای را فعال نکرده اید.
             @endif
         </h3>
 
         <div class="mt-3 max-w-xl text-sm text-gray-600">
             <p>
-                {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
+                 هنگامی گه احرازهویت دومرحله ای را فعال میکنید از شما یک رمز دیگری درخواست میشود که باید از نرم افزار Google Authenticator دریافت نمایید.
             </p>
         </div>
 
@@ -26,7 +26,7 @@
             @if ($showingQrCode)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
+                        هم اکنون احرازهویت دومرحله ای برای شما فعال شد. QR code زیر را در نرم افزار Google Authenticator اسکن نمایید.
                     </p>
                 </div>
 
@@ -38,7 +38,7 @@
             @if ($showingRecoveryCodes)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.') }}
+                        کد بازیابی را در مکانی امن ذخیره کنید. این کد زمانی که دستگاهی که روی آن Google Authenticator نصب است را گم کرده اید به شما کمک میکند تا حساب خود را بازیابی کنید.
                     </p>
                 </div>
 
@@ -53,21 +53,21 @@
         <div class="mt-5">
             @if (! $this->enabled)
                 <x-jet-button type="button" wire:click="enableTwoFactorAuthentication" wire:loading.attr="disabled">
-                    {{ __('Enable') }}
+                   فعال
                 </x-jet-button>
             @else
                 @if ($showingRecoveryCodes)
                     <x-jet-secondary-button class="mr-3" wire:click="regenerateRecoveryCodes">
-                        {{ __('Regenerate Recovery Codes') }}
+                         تولید مجدد کد بازیابی
                     </x-jet-secondary-button>
                 @else
                     <x-jet-secondary-button class="mr-3" wire:click="$toggle('showingRecoveryCodes')">
-                        {{ __('Show Recovery Codes') }}
+                          نمایش کدهای بازیابی
                     </x-jet-secondary-button>
                 @endif
 
                 <x-jet-danger-button wire:click="disableTwoFactorAuthentication" wire:loading.attr="disabled">
-                    {{ __('Disable') }}
+                    غیرفعال
                 </x-jet-danger-button>
             @endif
         </div>
