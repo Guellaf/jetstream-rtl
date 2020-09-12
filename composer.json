@@ -1,7 +1,7 @@
 {
     "name": "alifattahi/jetstream-rtl",
-    "description": "Tailwind scaffolding for the Laravel framework.",
-    "keywords": ["laravel", "tailwind", "auth"],
+    "description": "RTL Tailwind scaffolding for the Laravel framework.",
+    "keywords": ["laravel", "tailwind", "auth","rtl"],
     "license": "MIT",
     "support": {
         "issues": "https://github.com/laravel/jetstream/issues",
@@ -11,6 +11,10 @@
         {
             "name": "Taylor Otwell",
             "email": "taylor@laravel.com"
+        },
+		{
+            "name": "Ali Fattahi",
+            "email": "ali.robocup@gmail.com"
         }
     ],
     "require": {
