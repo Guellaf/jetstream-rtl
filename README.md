@@ -17,8 +17,8 @@
 
 Persian RTL Version of Laravel Jetstream
 
-##Installation
-###First Step
+## Installation
+### First Step
 Install tailwindcss-rtl package:
 
 ```shell
@@ -28,7 +28,7 @@ yarn add tailwindcss-rtl --dev
 # NPM 
 npm install tailwindcss-rtl --save-dev
 ```
-###Next Steps
+### Next Steps
 First Install new Laravel
 then
 Install jetstream rtl via composer :
